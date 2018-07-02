@@ -4,10 +4,10 @@ classmethod solves our problem and work fine with inheritance because be have th
 '''
 class Person:
     name='Adam'
-    @staticmethod
-    def about():
-	' class name is hardcoded and will return base class member only if we call it from subclass also'
-        return Person.name 
+    @classmethod
+    def about(cls):
+        'we have the reference to the current class so it will return the menber of current class'
+        return cls.__name__ +' '+ cls.name
 	    
 class 	GoodPerson(Person):
     name='Santa'   
@@ -15,7 +15,7 @@ class BadPerson(Person):
     name='Banta'	
 
 pObj=Person()
-print(pObj.about())	
+print(pObj.about())
 
 gObj=GoodPerson()
 print(gObj.about())
